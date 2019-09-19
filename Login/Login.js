@@ -19,12 +19,12 @@ var submitBtn = document.querySelector('.submit-btn')
 submitBtn.addEventListener("click", function () {
     var username = document.getElementById('userName').value;
     var password = document.getElementById('passWord').value;
-    var user = new Auth();
-
+   
     user.loginFromAPI(username,password).then(function(data) {
         console.log(data);
-        localStorage.setItem("accessToken", data.accessToken);
-        localStorage.setItem("username", username);
+        localStorage.getItem("accessToken", data.accessToken);
+        localStorage.getItem("username", username);
+        console.log("Log in", response);
         
     }).catch(function(response) {
         if(response.status=401) {
